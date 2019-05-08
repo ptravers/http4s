@@ -41,7 +41,8 @@ lazy val modules: List[ProjectReference] = List(
   examplesDocker,
   examplesJetty,
   examplesTomcat,
-  examplesWar
+  examplesWar,
+  websocketTootallnateClient,
 )
 
 lazy val root = project.in(file("."))
@@ -587,6 +588,9 @@ lazy val examplesWar = exampleProject("examples-war")
     Jetty / containerLibs := List(jettyRunner),
   )
   .dependsOn(servlet)
+
+lazy val websocketTootallnateClient = exampleProject("websocket-tootallnate-client")
+    .settings(crossScalaAll)
 
 def http4sProject(name: String) =
   Project(name, file(name))
